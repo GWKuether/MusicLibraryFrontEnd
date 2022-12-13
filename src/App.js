@@ -21,13 +21,14 @@ function App() {
   }
 
   async function addNewSong(newSong){
-    let response = await axios.post("http://127.0.0.1:8000/api/music/", newSong)
+    await axios.post("http://127.0.0.1:8000/api/music/", newSong)
     getAllSongs()
   }
 
   function displaySearchResults(results){
     setSongs(results)
   }
+
 
   
   
@@ -41,11 +42,10 @@ function App() {
           <div className='col-3'></div>
           <div className='col-6'>
           <SearchBar songs={songs} results={displaySearchResults}/>
-          <MusicTable songs={songs} />
+          <MusicTable songs={songs} results={getAllSongs} />
           <AddNewSong newSong={addNewSong} />
           </div>
           <div className='col-3'>
-
           </div>
         </div>
       </div>

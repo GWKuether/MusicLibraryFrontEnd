@@ -39,7 +39,7 @@ const AddNewSong = (props) => {
                 <input type="text" value={genre} onChange= {(event) => setGenre(event.target.value)} />
             </div>
             <div className='d-flex justify-content-center'>
-                <button type='submit' className='p-2'>Add</button>
+                <button type='submit' className='p-2 btn btn-dark'>Add</button>
             </div>
         </form>
 
