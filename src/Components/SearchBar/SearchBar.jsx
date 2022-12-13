@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SearchBar.css'
 
 const SearchBar = (props) => {
     
@@ -12,20 +13,21 @@ const SearchBar = (props) => {
     function handleSubmit(event){
         event.preventDefault()
         if (searchInput.length > 0) {
-            let result = props.songs.filter((song) => {
-                if (song.title.match(searchInput) || song.artist.match(searchInput) || song.album.match(searchInput) || song.release_date.match(searchInput) || song.genre.match(searchInput)){
+            let results = props.songs.filter((song) => {
+                if (song.title.toLowerCase().match(searchInput.toLowerCase()) ||  song.artist.toLowerCase().match(searchInput.toLowerCase()) || song.album.toLowerCase().match(searchInput.toLowerCase()) || song.release_date.match(searchInput) || song.genre.toLowerCase().match(searchInput.toLowerCase())){
                     return true
                 }
                 
             })
-            console.log(result)
+            props.results(results)
+            console.log(results)
         }
     }
 
 
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='margin-bottom'>
             <input type='text' placeholder='Search here' onChange={handleSearch} value={searchInput} />
         </form>
 

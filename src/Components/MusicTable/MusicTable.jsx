@@ -1,13 +1,15 @@
+import './MusicTable.css'
+
 const MusicTable = (props) => {
     return (
-        <table>
+        <table className="table table-striped border table-background">
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Artist</th>
-            <th>Album</th>
-            <th>Release Date</th>
-            <th>Genre</th>
+            <th scope="col">Title</th>
+            <th scope="col">Artist</th>
+            <th scope="col">Album</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Genre</th>
           </tr>
         </thead>
         <tbody>
